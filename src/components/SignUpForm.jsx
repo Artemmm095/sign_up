@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button, Grid, Typography, InputLabel, Link, IconButton, Container } from '@mui/material';
 import { Facebook, Google } from '@mui/icons-material';
+import Divider from './Divider';
 
 
 // Сообщение, выводящееся в случае пустого поля
@@ -58,7 +59,7 @@ const SignUpForm = () => {
                         variant="p"
                         style={{ fontWeight: '600' }}
                     >
-                        Уже есть аккаунт? <Link href="#" underline="none">Войти</Link>
+                        Уже есть аккаунт? <Link href="src/components/SignUpForm#" underline="none">Войти</Link>
                     </Typography>
                 </Grid>
 
@@ -154,7 +155,7 @@ const SignUpForm = () => {
                         helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
                     />
                 </Grid>
-                
+
                 <Grid item>
                     <Button
                         type="submit"
@@ -180,14 +181,8 @@ const SignUpForm = () => {
                     alignItems: 'center',
                     width: '350px',
                 }}>
-                    <Container style={{
-                        height: '2px',
-                        width: '50px',
-                        display: 'flex',
-                        backgroundColor: '#DCDCDC',
-                        padding: '0',
-                    }}></Container>
 
+                    <Divider />
                     <Typography
                         variant="p"
                         style={{
@@ -198,14 +193,7 @@ const SignUpForm = () => {
                         }}
                     >Или зарегистрируйтесь через
                     </Typography>
-
-                    <Container style={{
-                        height: '2px',
-                        width: '50px',
-                        display: 'flex',
-                        backgroundColor: '#DCDCDC',
-                        padding: '0',
-                    }}></Container>
+                    <Divider />
                 </Grid>
 
                 <Grid item>
