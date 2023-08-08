@@ -3,14 +3,15 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button, Grid, Typography, InputLabel, Link, IconButton, Container } from '@mui/material';
 import { Facebook, Google } from '@mui/icons-material';
+import Divider from './Divider';
 
 
-// Сообщение, выводящееся в случае пустого поля
+// The error message in case of empty field
 const emptyFieldMessage = 'Поле не должно быть пустым';
 
 const SignUpForm = () => {
 
-    // Определение схемы валидации формы (с использованием библиотеки Yup)
+    // The validation schema definition (using Yup library)
     const validationSchema = Yup.object().shape({
         firstName: Yup.string()
             .required(emptyFieldMessage),
@@ -29,12 +30,12 @@ const SignUpForm = () => {
             .required(emptyFieldMessage),
     });
 
-    // Обработчик отправки формы
+    // The form submitting handler
     const handleSubmit = (values) => {
         console.log(values);
     };
 
-    // Управление состоянием формы и обработка валидации (с использованием хука useFormik)
+    // Controlling the form state and Validation handling (using useFormik hook)
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -48,7 +49,7 @@ const SignUpForm = () => {
         onSubmit: handleSubmit,
     });
 
-    // Построение формы
+    // The form building
     return (
         <form onSubmit={formik.handleSubmit}>
             <Grid container direction="column" alignItems="center" spacing={3}>
@@ -58,7 +59,7 @@ const SignUpForm = () => {
                         variant="p"
                         style={{ fontWeight: '600' }}
                     >
-                        Уже есть аккаунт? <Link href="#" underline="none">Войти</Link>
+                        Уже есть аккаунт? <Link href="src/components/SignUpForm#" underline="none">Войти</Link>
                     </Typography>
                 </Grid>
 
@@ -154,7 +155,7 @@ const SignUpForm = () => {
                         helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
                     />
                 </Grid>
-                
+
                 <Grid item>
                     <Button
                         type="submit"
@@ -180,14 +181,7 @@ const SignUpForm = () => {
                     alignItems: 'center',
                     width: '350px',
                 }}>
-                    <Container style={{
-                        height: '2px',
-                        width: '50px',
-                        display: 'flex',
-                        backgroundColor: '#DCDCDC',
-                        padding: '0',
-                    }}></Container>
-
+                    <Divider />
                     <Typography
                         variant="p"
                         style={{
@@ -198,14 +192,7 @@ const SignUpForm = () => {
                         }}
                     >Или зарегистрируйтесь через
                     </Typography>
-
-                    <Container style={{
-                        height: '2px',
-                        width: '50px',
-                        display: 'flex',
-                        backgroundColor: '#DCDCDC',
-                        padding: '0',
-                    }}></Container>
+                    <Divider />
                 </Grid>
 
                 <Grid item>
