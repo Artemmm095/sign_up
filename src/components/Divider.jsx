@@ -1,5 +1,6 @@
 import React from 'react';
-import {Container} from "@mui/material";
+import { Container } from "@mui/material";
+
 
 const Divider = () => {
     return (
@@ -12,5 +13,6 @@ const Divider = () => {
         }}></Container>
     );
 };
+
 
 export default Divider;

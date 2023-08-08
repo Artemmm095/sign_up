@@ -6,12 +6,12 @@ import { Facebook, Google } from '@mui/icons-material';
 import Divider from './Divider';
 
 
-// Сообщение, выводящееся в случае пустого поля
+// The error message in case of empty field
 const emptyFieldMessage = 'Поле не должно быть пустым';
 
 const SignUpForm = () => {
 
-    // Определение схемы валидации формы (с использованием библиотеки Yup)
+    // The validation schema definition (using Yup library)
     const validationSchema = Yup.object().shape({
         firstName: Yup.string()
             .required(emptyFieldMessage),
@@ -30,12 +30,12 @@ const SignUpForm = () => {
             .required(emptyFieldMessage),
     });
 
-    // Обработчик отправки формы
+    // The form submitting handler
     const handleSubmit = (values) => {
         console.log(values);
     };
 
-    // Управление состоянием формы и обработка валидации (с использованием хука useFormik)
+    // Controlling the form state and Validation handling (using useFormik hook)
     const formik = useFormik({
         initialValues: {
             firstName: '',
@@ -49,7 +49,7 @@ const SignUpForm = () => {
         onSubmit: handleSubmit,
     });
 
-    // Построение формы
+    // The form building
     return (
         <form onSubmit={formik.handleSubmit}>
             <Grid container direction="column" alignItems="center" spacing={3}>
@@ -181,7 +181,6 @@ const SignUpForm = () => {
                     alignItems: 'center',
                     width: '350px',
                 }}>
-
                     <Divider />
                     <Typography
                         variant="p"
